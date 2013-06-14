@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D7F06ADA176A853000E8A4B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06AD9176A853000E8A4B9 /* UIKit.framework */; };
+		D7F06ADC176A853000E8A4B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06ADB176A853000E8A4B9 /* Foundation.framework */; };
+		D7F06ADE176A853000E8A4B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06ADD176A853000E8A4B9 /* CoreGraphics.framework */; };
+		D7F06AE6176A853000E8A4B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F06AE5176A853000E8A4B9 /* main.m */; };
+		D7F06AEC176A853000E8A4B9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F06AEB176A853000E8A4B9 /* Default.png */; };
+		D7F06AEE176A853000E8A4B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F06AED176A853000E8A4B9 /* Default@2x.png */; };
+		D7F06AF0176A853000E8A4B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F06AEF176A853000E8A4B9 /* Default-568h@2x.png */; };
+		D7F06B0B176A85A000E8A4B9 /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F06B00176A85A000E8A4B9 /* SSAppDelegate.m */; };
+		D7F06B0C176A85A000E8A4B9 /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F06B04176A85A000E8A4B9 /* SSViewController.m */; };
+		D7F06B0D176A85A000E8A4B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F06B07176A85A000E8A4B9 /* InfoPlist.strings */; };
+		D7F06B0E176A85A000E8A4B9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F06B09176A85A000E8A4B9 /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D7F06AD6176A853000E8A4B9 /* SharedShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7F06AD9176A853000E8A4B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D7F06ADB176A853000E8A4B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D7F06ADD176A853000E8A4B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D7F06AE1176A853000E8A4B9 /* SharedShopping-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SharedShopping-Info.plist"; sourceTree = "<group>"; };
+		D7F06AE5176A853000E8A4B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D7F06AE7176A853000E8A4B9 /* SharedShopping-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SharedShopping-Prefix.pch"; sourceTree = "<group>"; };
+		D7F06AEB176A853000E8A4B9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D7F06AED176A853000E8A4B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D7F06AEF176A853000E8A4B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D7F06AFF176A85A000E8A4B9 /* SSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAppDelegate.h; sourceTree = "<group>"; };
+		D7F06B00176A85A000E8A4B9 /* SSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAppDelegate.m; sourceTree = "<group>"; };
+		D7F06B03176A85A000E8A4B9 /* SSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
+		D7F06B04176A85A000E8A4B9 /* SSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
+		D7F06B08176A85A000E8A4B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D7F06B0A176A85A000E8A4B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D7F06B0F176A864700E8A4B9 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7F06AD3176A853000E8A4B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F06ADA176A853000E8A4B9 /* UIKit.framework in Frameworks */,
+				D7F06ADC176A853000E8A4B9 /* Foundation.framework in Frameworks */,
+				D7F06ADE176A853000E8A4B9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7F06ACD176A853000E8A4B9 = {
+			isa = PBXGroup;
+			children = (
+				D7F06ADF176A853000E8A4B9 /* SharedShopping */,
+				D7F06AD8176A853000E8A4B9 /* Frameworks */,
+				D7F06AD7176A853000E8A4B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7F06AD7176A853000E8A4B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06AD6176A853000E8A4B9 /* SharedShopping.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7F06AD8176A853000E8A4B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06AD9176A853000E8A4B9 /* UIKit.framework */,
+				D7F06ADB176A853000E8A4B9 /* Foundation.framework */,
+				D7F06ADD176A853000E8A4B9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7F06ADF176A853000E8A4B9 /* SharedShopping */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06AFC176A85A000E8A4B9 /* Classes */,
+				D7F06B06176A85A000E8A4B9 /* Resources */,
+				D7F06AE0176A853000E8A4B9 /* Supporting Files */,
+			);
+			path = SharedShopping;
+			sourceTree = "<group>";
+		};
+		D7F06AE0176A853000E8A4B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06AE1176A853000E8A4B9 /* SharedShopping-Info.plist */,
+				D7F06AE5176A853000E8A4B9 /* main.m */,
+				D7F06AE7176A853000E8A4B9 /* SharedShopping-Prefix.pch */,
+				D7F06AEB176A853000E8A4B9 /* Default.png */,
+				D7F06AED176A853000E8A4B9 /* Default@2x.png */,
+				D7F06AEF176A853000E8A4B9 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7F06AFC176A85A000E8A4B9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06AFE176A85A000E8A4B9 /* Core */,
+				D7F06B02176A85A000E8A4B9 /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D7F06AFE176A85A000E8A4B9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06B0F176A864700E8A4B9 /* SynthesizeSingleton.h */,
+				D7F06AFF176A85A000E8A4B9 /* SSAppDelegate.h */,
+				D7F06B00176A85A000E8A4B9 /* SSAppDelegate.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D7F06B02176A85A000E8A4B9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06B03176A85A000E8A4B9 /* SSViewController.h */,
+				D7F06B04176A85A000E8A4B9 /* SSViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D7F06B06176A85A000E8A4B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7F06B07176A85A000E8A4B9 /* InfoPlist.strings */,
+				D7F06B09176A85A000E8A4B9 /* MainStoryboard.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7F06AD5176A853000E8A4B9 /* SharedShopping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7F06AF9176A853000E8A4B9 /* Build configuration list for PBXNativeTarget "SharedShopping" */;
+			buildPhases = (
+				D7F06AD2176A853000E8A4B9 /* Sources */,
+				D7F06AD3176A853000E8A4B9 /* Frameworks */,
+				D7F06AD4176A853000E8A4B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SharedShopping;
+			productName = SharedShopping;
+			productReference = D7F06AD6176A853000E8A4B9 /* SharedShopping.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7F06ACE176A853000E8A4B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SS;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "InPos Soft";
+			};
+			buildConfigurationList = D7F06AD1176A853000E8A4B9 /* Build configuration list for PBXProject "SharedShopping" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D7F06ACD176A853000E8A4B9;
+			productRefGroup = D7F06AD7176A853000E8A4B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7F06AD5176A853000E8A4B9 /* SharedShopping */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7F06AD4176A853000E8A4B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F06AEC176A853000E8A4B9 /* Default.png in Resources */,
+				D7F06AEE176A853000E8A4B9 /* Default@2x.png in Resources */,
+				D7F06AF0176A853000E8A4B9 /* Default-568h@2x.png in Resources */,
+				D7F06B0D176A85A000E8A4B9 /* InfoPlist.strings in Resources */,
+				D7F06B0E176A85A000E8A4B9 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7F06AD2176A853000E8A4B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F06AE6176A853000E8A4B9 /* main.m in Sources */,
+				D7F06B0B176A85A000E8A4B9 /* SSAppDelegate.m in Sources */,
+				D7F06B0C176A85A000E8A4B9 /* SSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D7F06B07176A85A000E8A4B9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7F06B08176A85A000E8A4B9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D7F06B09176A85A000E8A4B9 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7F06B0A176A85A000E8A4B9 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D7F06AF7176A853000E8A4B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D7F06AF8176A853000E8A4B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7F06AFA176A853000E8A4B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SharedShopping/SharedShopping-Prefix.pch";
+				INFOPLIST_FILE = "SharedShopping/SharedShopping-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D7F06AFB176A853000E8A4B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SharedShopping/SharedShopping-Prefix.pch";
+				INFOPLIST_FILE = "SharedShopping/SharedShopping-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7F06AD1176A853000E8A4B9 /* Build configuration list for PBXProject "SharedShopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7F06AF7176A853000E8A4B9 /* Debug */,
+				D7F06AF8176A853000E8A4B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7F06AF9176A853000E8A4B9 /* Build configuration list for PBXNativeTarget "SharedShopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7F06AFA176A853000E8A4B9 /* Debug */,
+				D7F06AFB176A853000E8A4B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7F06ACE176A853000E8A4B9 /* Project object */;
+}
