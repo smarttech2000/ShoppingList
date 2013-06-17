@@ -7,6 +7,7 @@
 //
 
 #import "SSItemsViewController.h"
+#import "SSItemTableViewCell.h"
 
 @interface SSItemsViewController ()
 
@@ -40,29 +41,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (void)viewWillAppear:(BOOL)animated {
+    [[SSModelController sharedInstance].shoppingList performFetch:nil];
+    [self.tableView reloadData];
 }
+
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    id  sectionInfo = [[[SSModelController sharedInstance].shoppingList sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString *CellIdentifier = @"ShoppingListCell";
+    SSItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    cell.shoppingListNameLabel.text = [[[SSModelController sharedInstance].shoppingList objectAtIndexPath:indexPath] name];
+
     return cell;
 }
 
