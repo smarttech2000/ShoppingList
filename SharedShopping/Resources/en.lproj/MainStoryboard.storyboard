@@ -30,6 +30,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add New Item" id="xYk-Rm-3XA">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7Zp-EX-Wyl">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="4e2-e0-emh" id="ekr-t6-Qu5"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="FlC-PY-4D9">
                                             <connections>
                                                 <action selector="doneButtonTapped:" destination="4e2-e0-emh" id="pyv-3v-UTO"/>
@@ -129,6 +134,26 @@
             <point key="canvasLocation" x="935" y="204"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="SSAddItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSAddItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonTapped:"/>
+                <relationship kind="action" name="doneButtonTapped:"/>
+                <relationship kind="outlet" name="newShoppingListNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SSItemTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSItemTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="shoppingListDetailsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shoppingListNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SSItemsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSItemsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

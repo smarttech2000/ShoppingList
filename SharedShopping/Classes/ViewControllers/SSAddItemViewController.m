@@ -53,6 +53,10 @@
     }
 }
 
+-(IBAction)cancelButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)dealloc {
     [_newShoppingListNameTextField release];
     [super dealloc];
