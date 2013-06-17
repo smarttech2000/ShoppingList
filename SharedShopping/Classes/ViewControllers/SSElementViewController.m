@@ -1,18 +1,18 @@
 //
-//  SSAddItemViewController.m
+//  SSElementViewController.m
 //  SharedShopping
 //
 //  Created by Ilea Cristian on 6/17/13.
 //  Copyright (c) 2013 InPos Soft. All rights reserved.
 //
 
-#import "SSAddItemViewController.h"
+#import "SSElementViewController.h"
 
-@interface SSAddItemViewController ()
+@interface SSElementViewController ()
 
 @end
 
-@implementation SSAddItemViewController
+@implementation SSElementViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,15 +36,26 @@
 }
 
 - (IBAction)doneButtonTapped:(id)sender {
-    if ([self.shoppingListNameTextField.text length]) {
-        SSShoppingList* newShoppingList = [[SSModelController sharedInstance] aShoppingList];
-        newShoppingList.name = self.shoppingListNameTextField.text;
+
+    // TODO propper validation of textfields
+    if ([self.nameTextField.text length] &&
+        [self.priceTextField.text length] &&
+        [self.amountTextField.text length])
+    {
+
+        SSShoppingListElement* newShoppingListElement = [[SSModelController sharedInstance] aShoppingListElement];
+        // set parrent
+        newShoppingListElement.shoppingList = self.shoppingList;
+        newShoppingListElement.name = self.nameTextField.text;
+        newShoppingListElement.price = [NSNumber numberWithInt:[self.priceTextField.text intValue]];
+        newShoppingListElement.amount = [NSNumber numberWithInt:[self.amountTextField.text intValue]];
+
 
         [[SSModelController sharedInstance] save];
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Please fill the name of the shopping list"
+                                    message:@"Please fill all the required fields"
                                    delegate:nil cancelButtonTitle:@"Ok"
                           otherButtonTitles:nil] show];
     }
@@ -55,7 +66,9 @@
 }
 
 - (void)dealloc {
-    [_shoppingListNameTextField release];
+    [_nameTextField release];
+    [_priceTextField release];
+    [_amountTextField release];
     [super dealloc];
 }
 @end

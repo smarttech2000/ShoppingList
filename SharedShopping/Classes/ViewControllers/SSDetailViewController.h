@@ -10,4 +10,7 @@
 
 @interface SSDetailViewController : UITableViewController
 
+@property (nonatomic, retain) SSShoppingList* selectedShoppingList;
+@property (nonatomic, retain) NSFetchedResultsController* shoppingListElements;
+
 @end

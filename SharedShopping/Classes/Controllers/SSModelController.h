@@ -8,6 +8,7 @@
 
 #import <CoreData/CoreData.h>
 #import "SSStorageControllerProtocol.h"
+#import "SSShoppingList.h"
 
 @interface SSModelController : NSObject <SSStorageControllerProtocol>
 
@@ -17,5 +18,6 @@
 
 // Convenience methods
 + (SSModelController *)sharedInstance;
+- (NSFetchedResultsController*)getShoppingListElementForShoppingList:(SSShoppingList*)selectedList;
 
 @end

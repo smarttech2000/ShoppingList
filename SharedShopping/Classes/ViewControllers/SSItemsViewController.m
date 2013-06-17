@@ -7,6 +7,7 @@
 //
 
 #import "SSItemsViewController.h"
+#import "SSDetailViewController.h"
 #import "SSItemTableViewCell.h"
 
 @interface SSItemsViewController ()
@@ -33,6 +34,15 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShowSelectedShoppingList"]){
+        SSDetailViewController* detailVC = [segue destinationViewController];
+
+        NSIndexPath* shoppingListIndexPath = [self.tableView indexPathForCell:sender];
+        detailVC.selectedShoppingList = [[SSModelController sharedInstance].shoppingList objectAtIndexPath:shoppingListIndexPath];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,14 +117,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+
 }
 
 @end

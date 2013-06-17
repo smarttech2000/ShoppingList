@@ -11,6 +11,8 @@
 		7D175542176F15C900018D3B /* SSItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175541176F15C900018D3B /* SSItemsViewController.m */; };
 		7D175546176F2CA300018D3B /* SSItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175545176F2CA300018D3B /* SSItemTableViewCell.m */; };
 		7D175549176F35E900018D3B /* SSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175548176F35E900018D3B /* SSDetailViewController.m */; };
+		7D17554C176F450800018D3B /* SSElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D17554B176F450800018D3B /* SSElementViewController.m */; };
+		7D17554F176F9C4400018D3B /* SSDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D17554E176F9C4400018D3B /* SSDetailTableViewCell.m */; };
 		D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD15F176E3AB30077703F /* SSShoppingList.m */; };
 		D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD162176E3AB40077703F /* SSShoppingListElement.m */; };
 		D7E95C1E176C9ACF009F068A /* SharedShopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7E95C1C176C9ACF009F068A /* SharedShopping.xcdatamodeld */; };
@@ -38,6 +40,10 @@
 		7D175545176F2CA300018D3B /* SSItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSItemTableViewCell.m; sourceTree = "<group>"; };
 		7D175547176F35E900018D3B /* SSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDetailViewController.h; sourceTree = "<group>"; };
 		7D175548176F35E900018D3B /* SSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDetailViewController.m; sourceTree = "<group>"; };
+		7D17554A176F450800018D3B /* SSElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSElementViewController.h; sourceTree = "<group>"; };
+		7D17554B176F450800018D3B /* SSElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSElementViewController.m; sourceTree = "<group>"; };
+		7D17554D176F9C4400018D3B /* SSDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDetailTableViewCell.h; sourceTree = "<group>"; };
+		7D17554E176F9C4400018D3B /* SSDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDetailTableViewCell.m; sourceTree = "<group>"; };
 		D7DFD15E176E3AB30077703F /* SSShoppingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingList.h; sourceTree = "<group>"; };
 		D7DFD15F176E3AB30077703F /* SSShoppingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSShoppingList.m; sourceTree = "<group>"; };
 		D7DFD161176E3AB40077703F /* SSShoppingListElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingListElement.h; sourceTree = "<group>"; };
@@ -86,6 +92,8 @@
 			children = (
 				7D175544176F2CA300018D3B /* SSItemTableViewCell.h */,
 				7D175545176F2CA300018D3B /* SSItemTableViewCell.m */,
+				7D17554D176F9C4400018D3B /* SSDetailTableViewCell.h */,
+				7D17554E176F9C4400018D3B /* SSDetailTableViewCell.m */,
 			);
 			name = Cells;
 			path = Classes/Controllers;
@@ -196,6 +204,8 @@
 				7D175541176F15C900018D3B /* SSItemsViewController.m */,
 				7D175547176F35E900018D3B /* SSDetailViewController.h */,
 				7D175548176F35E900018D3B /* SSDetailViewController.m */,
+				7D17554A176F450800018D3B /* SSElementViewController.h */,
+				7D17554B176F450800018D3B /* SSElementViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +298,8 @@
 				D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */,
 				7D175546176F2CA300018D3B /* SSItemTableViewCell.m in Sources */,
 				7D175549176F35E900018D3B /* SSDetailViewController.m in Sources */,
+				7D17554C176F450800018D3B /* SSElementViewController.m in Sources */,
+				7D17554F176F9C4400018D3B /* SSDetailTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

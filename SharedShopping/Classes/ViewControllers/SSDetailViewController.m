@@ -7,6 +7,8 @@
 //
 
 #import "SSDetailViewController.h"
+#import "SSElementViewController.h"
+#import "SSDetailTableViewCell.h"
 
 @interface SSDetailViewController ()
 
@@ -34,6 +36,19 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.shoppingListElements = [[SSModelController sharedInstance] getShoppingListElementForShoppingList:self.selectedShoppingList];
+    [self.shoppingListElements performFetch:nil];
+    [self.tableView reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"AddElementSegue"]) {
+        SSElementViewController* elementVC = [segue destinationViewController];
+        elementVC.shoppingList = self.selectedShoppingList;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -42,27 +57,21 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.selectedShoppingList.elements count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"ElementCell";
+    SSDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    cell.nameLabel.text = [[self.shoppingListElements objectAtIndexPath:indexPath] name];
+    cell.priceLabel.text = [[[self.shoppingListElements objectAtIndexPath:indexPath] price] stringValue];
+    cell.amountLabel.text = [[[self.shoppingListElements objectAtIndexPath:indexPath] amount] stringValue];
+
     return cell;
 }
 
