@@ -10,6 +10,7 @@
 		7D17553F176F13AD00018D3B /* SSAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D17553E176F13AD00018D3B /* SSAddItemViewController.m */; };
 		7D175542176F15C900018D3B /* SSItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175541176F15C900018D3B /* SSItemsViewController.m */; };
 		7D175546176F2CA300018D3B /* SSItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175545176F2CA300018D3B /* SSItemTableViewCell.m */; };
+		7D175549176F35E900018D3B /* SSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175548176F35E900018D3B /* SSDetailViewController.m */; };
 		D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD15F176E3AB30077703F /* SSShoppingList.m */; };
 		D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD162176E3AB40077703F /* SSShoppingListElement.m */; };
 		D7E95C1E176C9ACF009F068A /* SharedShopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7E95C1C176C9ACF009F068A /* SharedShopping.xcdatamodeld */; };
@@ -35,6 +36,8 @@
 		7D175541176F15C900018D3B /* SSItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSItemsViewController.m; sourceTree = "<group>"; };
 		7D175544176F2CA300018D3B /* SSItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSItemTableViewCell.h; sourceTree = "<group>"; };
 		7D175545176F2CA300018D3B /* SSItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSItemTableViewCell.m; sourceTree = "<group>"; };
+		7D175547176F35E900018D3B /* SSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDetailViewController.h; sourceTree = "<group>"; };
+		7D175548176F35E900018D3B /* SSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDetailViewController.m; sourceTree = "<group>"; };
 		D7DFD15E176E3AB30077703F /* SSShoppingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingList.h; sourceTree = "<group>"; };
 		D7DFD15F176E3AB30077703F /* SSShoppingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSShoppingList.m; sourceTree = "<group>"; };
 		D7DFD161176E3AB40077703F /* SSShoppingListElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingListElement.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				7D17553E176F13AD00018D3B /* SSAddItemViewController.m */,
 				7D175540176F15C900018D3B /* SSItemsViewController.h */,
 				7D175541176F15C900018D3B /* SSItemsViewController.m */,
+				7D175547176F35E900018D3B /* SSDetailViewController.h */,
+				7D175548176F35E900018D3B /* SSDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */,
 				D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */,
 				7D175546176F2CA300018D3B /* SSItemTableViewCell.m in Sources */,
+				7D175549176F35E900018D3B /* SSDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
