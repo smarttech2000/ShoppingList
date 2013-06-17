@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD15F176E3AB30077703F /* SSShoppingList.m */; };
+		D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD162176E3AB40077703F /* SSShoppingListElement.m */; };
+		D7E95C1E176C9ACF009F068A /* SharedShopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7E95C1C176C9ACF009F068A /* SharedShopping.xcdatamodeld */; };
+		D7E95C2D176C9CED009F068A /* IPCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E95C2C176C9CED009F068A /* IPCoreDataController.m */; };
+		D7E95C30176C9D34009F068A /* SSModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E95C2F176C9D34009F068A /* SSModelController.m */; };
+		D7E95C32176CA01A009F068A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E95C31176CA01A009F068A /* CoreData.framework */; };
 		D7F06ADA176A853000E8A4B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06AD9176A853000E8A4B9 /* UIKit.framework */; };
 		D7F06ADC176A853000E8A4B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06ADB176A853000E8A4B9 /* Foundation.framework */; };
 		D7F06ADE176A853000E8A4B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06ADD176A853000E8A4B9 /* CoreGraphics.framework */; };
@@ -21,6 +27,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7DFD15E176E3AB30077703F /* SSShoppingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingList.h; sourceTree = "<group>"; };
+		D7DFD15F176E3AB30077703F /* SSShoppingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSShoppingList.m; sourceTree = "<group>"; };
+		D7DFD161176E3AB40077703F /* SSShoppingListElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingListElement.h; sourceTree = "<group>"; };
+		D7DFD162176E3AB40077703F /* SSShoppingListElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSShoppingListElement.m; sourceTree = "<group>"; };
+		D7E95C1D176C9ACF009F068A /* SharedShopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SharedShopping.xcdatamodel; sourceTree = "<group>"; };
+		D7E95C2B176C9CED009F068A /* IPCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPCoreDataController.h; sourceTree = "<group>"; };
+		D7E95C2C176C9CED009F068A /* IPCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPCoreDataController.m; sourceTree = "<group>"; };
+		D7E95C2E176C9D34009F068A /* SSModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSModelController.h; sourceTree = "<group>"; };
+		D7E95C2F176C9D34009F068A /* SSModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSModelController.m; sourceTree = "<group>"; };
+		D7E95C31176CA01A009F068A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D7E95C33176CA1CE009F068A /* SSStorageControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSStorageControllerProtocol.h; sourceTree = "<group>"; };
 		D7F06AD6176A853000E8A4B9 /* SharedShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F06AD9176A853000E8A4B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D7F06ADB176A853000E8A4B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E95C32176CA01A009F068A /* CoreData.framework in Frameworks */,
 				D7F06ADA176A853000E8A4B9 /* UIKit.framework in Frameworks */,
 				D7F06ADC176A853000E8A4B9 /* Foundation.framework in Frameworks */,
 				D7F06ADE176A853000E8A4B9 /* CoreGraphics.framework in Frameworks */,
@@ -54,6 +72,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7E95C1A176C9A9F009F068A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7E95C2B176C9CED009F068A /* IPCoreDataController.h */,
+				D7E95C2C176C9CED009F068A /* IPCoreDataController.m */,
+				D7E95C2E176C9D34009F068A /* SSModelController.h */,
+				D7E95C2F176C9D34009F068A /* SSModelController.m */,
+				D7E95C33176CA1CE009F068A /* SSStorageControllerProtocol.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7E95C1B176C9AAA009F068A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7DFD15E176E3AB30077703F /* SSShoppingList.h */,
+				D7DFD15F176E3AB30077703F /* SSShoppingList.m */,
+				D7DFD161176E3AB40077703F /* SSShoppingListElement.h */,
+				D7DFD162176E3AB40077703F /* SSShoppingListElement.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D7F06ACD176A853000E8A4B9 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +115,7 @@
 		D7F06AD8176A853000E8A4B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7E95C31176CA01A009F068A /* CoreData.framework */,
 				D7F06AD9176A853000E8A4B9 /* UIKit.framework */,
 				D7F06ADB176A853000E8A4B9 /* Foundation.framework */,
 				D7F06ADD176A853000E8A4B9 /* CoreGraphics.framework */,
@@ -107,6 +149,8 @@
 		D7F06AFC176A85A000E8A4B9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D7E95C1B176C9AAA009F068A /* Models */,
+				D7E95C1A176C9A9F009F068A /* Controllers */,
 				D7F06AFE176A85A000E8A4B9 /* Core */,
 				D7F06B02176A85A000E8A4B9 /* ViewControllers */,
 			);
@@ -137,6 +181,7 @@
 			children = (
 				D7F06B07176A85A000E8A4B9 /* InfoPlist.strings */,
 				D7F06B09176A85A000E8A4B9 /* MainStoryboard.storyboard */,
+				D7E95C1C176C9ACF009F068A /* SharedShopping.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -211,6 +256,11 @@
 				D7F06AE6176A853000E8A4B9 /* main.m in Sources */,
 				D7F06B0B176A85A000E8A4B9 /* SSAppDelegate.m in Sources */,
 				D7F06B0C176A85A000E8A4B9 /* SSViewController.m in Sources */,
+				D7E95C1E176C9ACF009F068A /* SharedShopping.xcdatamodeld in Sources */,
+				D7E95C2D176C9CED009F068A /* IPCoreDataController.m in Sources */,
+				D7E95C30176C9D34009F068A /* SSModelController.m in Sources */,
+				D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */,
+				D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +346,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SharedShopping/SharedShopping-Prefix.pch";
 				INFOPLIST_FILE = "SharedShopping/SharedShopping-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SharedShopping/Resources/Libraries\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -307,6 +361,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SharedShopping/SharedShopping-Prefix.pch";
 				INFOPLIST_FILE = "SharedShopping/SharedShopping-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SharedShopping/Resources/Libraries\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -334,6 +392,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D7E95C1C176C9ACF009F068A /* SharedShopping.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D7E95C1D176C9ACF009F068A /* SharedShopping.xcdatamodel */,
+			);
+			currentVersion = D7E95C1D176C9ACF009F068A /* SharedShopping.xcdatamodel */;
+			path = SharedShopping.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D7F06ACE176A853000E8A4B9 /* Project object */;
 }
