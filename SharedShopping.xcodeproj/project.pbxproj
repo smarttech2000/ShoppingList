@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D17553F176F13AD00018D3B /* SSAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D17553E176F13AD00018D3B /* SSAddItemViewController.m */; };
+		7D175542176F15C900018D3B /* SSItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D175541176F15C900018D3B /* SSItemsViewController.m */; };
 		D7F06ADA176A853000E8A4B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06AD9176A853000E8A4B9 /* UIKit.framework */; };
 		D7F06ADC176A853000E8A4B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06ADB176A853000E8A4B9 /* Foundation.framework */; };
 		D7F06ADE176A853000E8A4B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F06ADD176A853000E8A4B9 /* CoreGraphics.framework */; };
@@ -15,12 +17,15 @@
 		D7F06AEE176A853000E8A4B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F06AED176A853000E8A4B9 /* Default@2x.png */; };
 		D7F06AF0176A853000E8A4B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F06AEF176A853000E8A4B9 /* Default-568h@2x.png */; };
 		D7F06B0B176A85A000E8A4B9 /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F06B00176A85A000E8A4B9 /* SSAppDelegate.m */; };
-		D7F06B0C176A85A000E8A4B9 /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F06B04176A85A000E8A4B9 /* SSViewController.m */; };
 		D7F06B0D176A85A000E8A4B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F06B07176A85A000E8A4B9 /* InfoPlist.strings */; };
 		D7F06B0E176A85A000E8A4B9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F06B09176A85A000E8A4B9 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D17553D176F13AD00018D3B /* SSAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddItemViewController.h; sourceTree = "<group>"; };
+		7D17553E176F13AD00018D3B /* SSAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddItemViewController.m; sourceTree = "<group>"; };
+		7D175540176F15C900018D3B /* SSItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSItemsViewController.h; sourceTree = "<group>"; };
+		7D175541176F15C900018D3B /* SSItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSItemsViewController.m; sourceTree = "<group>"; };
 		D7F06AD6176A853000E8A4B9 /* SharedShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F06AD9176A853000E8A4B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D7F06ADB176A853000E8A4B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -33,8 +38,6 @@
 		D7F06AEF176A853000E8A4B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D7F06AFF176A85A000E8A4B9 /* SSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAppDelegate.h; sourceTree = "<group>"; };
 		D7F06B00176A85A000E8A4B9 /* SSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAppDelegate.m; sourceTree = "<group>"; };
-		D7F06B03176A85A000E8A4B9 /* SSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
-		D7F06B04176A85A000E8A4B9 /* SSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
 		D7F06B08176A85A000E8A4B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7F06B0A176A85A000E8A4B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D7F06B0F176A864700E8A4B9 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -126,8 +129,10 @@
 		D7F06B02176A85A000E8A4B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D7F06B03176A85A000E8A4B9 /* SSViewController.h */,
-				D7F06B04176A85A000E8A4B9 /* SSViewController.m */,
+				7D17553D176F13AD00018D3B /* SSAddItemViewController.h */,
+				7D17553E176F13AD00018D3B /* SSAddItemViewController.m */,
+				7D175540176F15C900018D3B /* SSItemsViewController.h */,
+				7D175541176F15C900018D3B /* SSItemsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,7 +215,8 @@
 			files = (
 				D7F06AE6176A853000E8A4B9 /* main.m in Sources */,
 				D7F06B0B176A85A000E8A4B9 /* SSAppDelegate.m in Sources */,
-				D7F06B0C176A85A000E8A4B9 /* SSViewController.m in Sources */,
+				7D17553F176F13AD00018D3B /* SSAddItemViewController.m in Sources */,
+				7D175542176F15C900018D3B /* SSItemsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
