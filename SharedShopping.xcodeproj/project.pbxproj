@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7DBA721176FA4C000EA5231 /* northpole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DBA720176FA4C000EA5231 /* northpole.framework */; };
+		D7DBA724176FA4D500EA5231 /* SSWebservice.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DBA723176FA4D500EA5231 /* SSWebservice.m */; };
+		D7DBA726176FAC4300EA5231 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DBA725176FAC4300EA5231 /* MobileCoreServices.framework */; };
+		D7DBA728176FAC4A00EA5231 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DBA727176FAC4A00EA5231 /* SystemConfiguration.framework */; };
 		D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD15F176E3AB30077703F /* SSShoppingList.m */; };
 		D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DFD162176E3AB40077703F /* SSShoppingListElement.m */; };
 		D7E95C1E176C9ACF009F068A /* SharedShopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7E95C1C176C9ACF009F068A /* SharedShopping.xcdatamodeld */; };
@@ -27,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7DBA720176FA4C000EA5231 /* northpole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = northpole.framework; path = SharedShopping/Resources/northpole.framework; sourceTree = "<group>"; };
+		D7DBA722176FA4D500EA5231 /* SSWebservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWebservice.h; sourceTree = "<group>"; };
+		D7DBA723176FA4D500EA5231 /* SSWebservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWebservice.m; sourceTree = "<group>"; };
+		D7DBA725176FAC4300EA5231 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D7DBA727176FAC4A00EA5231 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D7DFD15E176E3AB30077703F /* SSShoppingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingList.h; sourceTree = "<group>"; };
 		D7DFD15F176E3AB30077703F /* SSShoppingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSShoppingList.m; sourceTree = "<group>"; };
 		D7DFD161176E3AB40077703F /* SSShoppingListElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSShoppingListElement.h; sourceTree = "<group>"; };
@@ -62,10 +71,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7DBA728176FAC4A00EA5231 /* SystemConfiguration.framework in Frameworks */,
+				D7DBA726176FAC4300EA5231 /* MobileCoreServices.framework in Frameworks */,
 				D7E95C32176CA01A009F068A /* CoreData.framework in Frameworks */,
 				D7F06ADA176A853000E8A4B9 /* UIKit.framework in Frameworks */,
 				D7F06ADC176A853000E8A4B9 /* Foundation.framework in Frameworks */,
 				D7F06ADE176A853000E8A4B9 /* CoreGraphics.framework in Frameworks */,
+				D7DBA721176FA4C000EA5231 /* northpole.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +87,8 @@
 		D7E95C1A176C9A9F009F068A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7DBA722176FA4D500EA5231 /* SSWebservice.h */,
+				D7DBA723176FA4D500EA5231 /* SSWebservice.m */,
 				D7E95C2B176C9CED009F068A /* IPCoreDataController.h */,
 				D7E95C2C176C9CED009F068A /* IPCoreDataController.m */,
 				D7E95C2E176C9D34009F068A /* SSModelController.h */,
@@ -115,6 +129,9 @@
 		D7F06AD8176A853000E8A4B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7DBA727176FAC4A00EA5231 /* SystemConfiguration.framework */,
+				D7DBA725176FAC4300EA5231 /* MobileCoreServices.framework */,
+				D7DBA720176FA4C000EA5231 /* northpole.framework */,
 				D7E95C31176CA01A009F068A /* CoreData.framework */,
 				D7F06AD9176A853000E8A4B9 /* UIKit.framework */,
 				D7F06ADB176A853000E8A4B9 /* Foundation.framework */,
@@ -261,6 +278,7 @@
 				D7E95C30176C9D34009F068A /* SSModelController.m in Sources */,
 				D7DFD160176E3AB30077703F /* SSShoppingList.m in Sources */,
 				D7DFD163176E3AB40077703F /* SSShoppingListElement.m in Sources */,
+				D7DBA724176FA4D500EA5231 /* SSWebservice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,13 +361,14 @@
 		D7F06AFA176A853000E8A4B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SharedShopping/Resources\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SharedShopping/SharedShopping-Prefix.pch";
 				INFOPLIST_FILE = "SharedShopping/SharedShopping-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/SharedShopping/Resources/Libraries\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -358,13 +377,14 @@
 		D7F06AFB176A853000E8A4B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SharedShopping/Resources\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SharedShopping/SharedShopping-Prefix.pch";
 				INFOPLIST_FILE = "SharedShopping/SharedShopping-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/SharedShopping/Resources/Libraries\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
