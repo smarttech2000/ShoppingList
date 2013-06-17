@@ -30,13 +30,20 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add New Item" id="xYk-Rm-3XA">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="FlC-PY-4D9"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="FlC-PY-4D9">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="4e2-e0-emh" id="pyv-3v-UTO"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="newShoppingListNameTextField" destination="fSO-w8-hI9" id="aLL-cX-1Fj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbW-V2-U0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,14 +125,6 @@
             <point key="canvasLocation" x="935" y="204"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="SSAddItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSAddItemViewController.h"/>
-        </class>
-        <class className="SSItemsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSItemsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

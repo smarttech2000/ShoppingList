@@ -10,4 +10,6 @@
 
 @interface SSAddItemViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UITextField *newShoppingListNameTextField;
+
 @end

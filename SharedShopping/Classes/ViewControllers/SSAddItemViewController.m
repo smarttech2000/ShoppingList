@@ -35,4 +35,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)doneButtonTapped:(id)sender {
+    //TODO save the shopping list if textfield not empty
+    // alert if textfield empty
+
+    if ([self.newShoppingListNameTextField.text length]) {
+        SSShoppingList* newShoppingList = [[SSModelController sharedInstance] aShoppingList];
+        newShoppingList.name = self.newShoppingListNameTextField.text;
+
+        [[SSModelController sharedInstance] save];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Please fill the name of the shopping list"
+                                   delegate:nil cancelButtonTitle:@"Ok"
+                          otherButtonTitles:nil] show];
+    }
+}
+
+- (void)dealloc {
+    [_newShoppingListNameTextField release];
+    [super dealloc];
+}
 @end
