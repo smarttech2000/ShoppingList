@@ -44,6 +44,8 @@
 		[[SSModelController sharedInstance].shoppingListElement performFetch:nil];
 		
 		[self.tableView reloadData];
+		
+		self.navigationItem.title = _selectedShoppingList.name;
 	}
 }
 

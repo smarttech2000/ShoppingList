@@ -10,6 +10,7 @@
 #import "SSDetailViewController.h"
 #import "SSItemTableViewCell.h"
 #import "SSQrCodeViewController.h"
+#import "SSWebservice.h"
 
 typedef enum {
 	SSItemsViewControllerActionSheetIndexQRCode,
@@ -39,7 +40,7 @@ typedef enum {
 			[self performSegueWithIdentifier:@"ShowAddNewShoppingList" sender:self];
 			break;
 		case SSItemsViewControllerActionSheetIndexQRCode:
-			NSLog(@"QR Code");
+			[self performSegueWithIdentifier:@"ShowQRCodeReader" sender:self];
 			break;
 	}
 }
@@ -59,6 +60,29 @@ typedef enum {
 	cell.shoppingListNameLabel.text = [[[SSModelController sharedInstance].shoppingList objectAtIndexPath:indexPath] name];
 	
 	return cell;
+}
+
+#pragma mark -
+#pragma mark SSQRCodeReaderViewControllerDelegate methods
+
+- (void)qrCodeReaderViewController:(SSQRCodeReaderViewController *)qrCodeReaderViewController foundText:(NSString *)text {
+	[self.navigationController popViewControllerAnimated:YES];
+	
+	__block UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Deleting..." message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+	UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	[activity startAnimating];
+	[alert addSubview:activity];
+	[activity release];
+	[alert show];
+	[alert release];
+	
+	[activity setCenter:CGPointMake(alert.bounds.size.width * .5, alert.bounds.size.height * .5)];
+	
+	[[SSWebservice sharedInstance] refreshShoppingListWithId:text withCompletionBlock:^{
+		[alert dismissWithClickedButtonIndex:0 animated:YES];
+	} andFailBlock:^(NSError *error) {
+		[alert dismissWithClickedButtonIndex:0 animated:YES];
+	}];
 }
 
 #pragma mark -
@@ -125,6 +149,9 @@ typedef enum {
 	} else if ([segue.identifier isEqualToString:@"ShowQRCode"]) {
 		SSQrCodeViewController *detailVC = [segue destinationViewController];
 		detailVC.shoppingList = shoppingList;
+	} else if ([segue.identifier isEqualToString:@"ShowQRCodeReader"]) {
+		SSQRCodeReaderViewController *detailVC = [segue destinationViewController];
+		detailVC.delegate = self;
 	}
 }
 

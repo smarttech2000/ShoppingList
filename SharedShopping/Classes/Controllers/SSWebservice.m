@@ -58,6 +58,45 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SSWebservice);
 	}];
 }
 
+- (void)refreshShoppingListWithId:(NSString *)shoppingListId withCompletionBlock:(void (^)(void))completionBlock andFailBlock:(void (^)(NSError *error))failBlock {
+	NSDictionary *params = @{@"api_key": @"guest@northpole.ro", @"secret": @"guest", @"id" : shoppingListId};
+	NPStorage *storage = [[[NPStorage alloc] initWithParams:params] autorelease];
+	__block NSString *weakShoppingListId = [shoppingListId retain];
+	[storage findWithCompletionBlock:^(id responseObject) {
+		NSDictionary *response = responseObject[0];
+		
+		SSShoppingList *shoppingList = [self.storageController aShoppingList];
+		shoppingList.name = response[@"namespace"];
+		shoppingList.id = shoppingListId;
+		__block NSMutableSet *existingElements = [NSMutableSet set];
+		[(NSArray *)response[@"storage"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+			SSShoppingListElement *element = [self.storageController aShoppingListElementByName:obj[@"name"] andShoppingList:shoppingList];
+			if (!element) {
+				element = [self.storageController aShoppingListElement];
+				element.name = obj[@"name"];
+				element.shoppingList = shoppingList;
+			}
+			element.price = obj[@"price"];
+			element.amount = obj[@"amount"];
+			[existingElements addObject:element];
+		}];
+		
+		NSMutableSet *deleteSet = [NSMutableSet setWithSet:shoppingList.elements];
+		[deleteSet minusSet:existingElements];
+		[deleteSet enumerateObjectsUsingBlock:^(SSShoppingListElement *obj, BOOL *stop) {
+			[self.storageController deleteShoppingListElement:obj];
+		}];
+		
+		[self.storageController save];
+		
+		[weakShoppingListId release];
+		completionBlock();
+	} andFailBlock:^(NSError *error) {
+		failBlock(error);
+		[weakShoppingListId release];
+	}];
+}
+
 - (void)createShoppingListWithName:(NSString *)shoppingListName withCompletionBlock:(void (^)(void))completionBlock andFailBlock:(void (^)(NSError *error))failBlock {
 	NSDictionary *params = @{@"api_key": @"guest@northpole.ro", @"secret": @"guest", @"namespace" : shoppingListName, @"storage": @[]};
 	NPStorage *storage = [[[NPStorage alloc] initWithParams:params] autorelease];

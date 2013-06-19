@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 InPos Soft. All rights reserved.
 //
 
-@interface SSItemsViewController : UITableViewController <UIActionSheetDelegate, NSFetchedResultsControllerDelegate>
+#import "SSQRCodeReaderViewController.h"
+
+@interface SSItemsViewController : UITableViewController <UIActionSheetDelegate, NSFetchedResultsControllerDelegate, SSQRCodeReaderViewControllerDelegate>
 
 // Actions
 - (IBAction)addButtonPushed:(UIBarButtonItem *)sender;
