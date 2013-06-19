@@ -18,6 +18,5 @@
 
 // Convenience methods
 + (SSModelController *)sharedInstance;
-- (NSFetchedResultsController*)getShoppingListElementForShoppingList:(SSShoppingList*)selectedList;
 
 @end

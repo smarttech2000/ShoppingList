@@ -75,25 +75,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SSModelController);
 	return _shoppingListElement;
 }
 
-- (NSFetchedResultsController*)getShoppingListElementForShoppingList:(SSShoppingList*)selectedList {
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(shoppingList == %@)", selectedList];
-
-
-	_shoppingListElement = [[_coreDataController frcForEntityName:@"SSShoppingListElement" andSortDescriptors:sortDescriptors andSectionNameKeyPath:nil andPredicate:predicate] retain];
-
-	[sortDescriptor release];
-	[sortDescriptors release];
-
-	[_shoppingListElement performFetch:nil];
-
-	return _shoppingListElement;
-
-}
-
-
 #pragma mark -
 #pragma mark SSStorageControllerProtocol methods
 

@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 InPos Soft. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@interface SSDetailViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@interface SSDetailViewController : UITableViewController
-
-@property (nonatomic, retain) SSShoppingList* selectedShoppingList;
-@property (nonatomic, retain) NSFetchedResultsController* shoppingListElements;
+// Properties
+@property (nonatomic, retain) SSShoppingList *selectedShoppingList;
 
 @end

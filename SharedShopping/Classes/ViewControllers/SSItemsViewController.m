@@ -47,7 +47,7 @@ typedef enum {
 #pragma mark UITableViewDataSource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	id  sectionInfo = [[[SSModelController sharedInstance].shoppingList sections] objectAtIndex:section];
+	id sectionInfo = [[[SSModelController sharedInstance].shoppingList sections] objectAtIndex:section];
 	return [sectionInfo numberOfObjects];
 }
 
@@ -89,7 +89,7 @@ typedef enum {
 			break;
 		case NSFetchedResultsChangeUpdate: {
 			SSItemTableViewCell *cell = (SSItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-			cell.shoppingListNameLabel.text = [[[SSModelController sharedInstance].shoppingList objectAtIndexPath:indexPath] name];
+			cell.shoppingListNameLabel.text = [anObject name];
 			break;
 		}
 		case NSFetchedResultsChangeMove:

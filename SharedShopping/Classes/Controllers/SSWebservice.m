@@ -76,6 +76,18 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SSWebservice);
 }
 
 - (void)addShoppingListElementWithUserInfo:(NSDictionary *)userInfo toShoppingList:(SSShoppingList *)shoppingList withCompletionBlock:(void (^)(void))completionBlock andFailBlock:(void (^)(NSError *error))failBlock {
+	SSShoppingListElement *shoppingListElement = [self.storageController aShoppingListElementByName:userInfo[@"name"] andShoppingList:shoppingList];
+	if (shoppingListElement) {
+		shoppingListElement.price = @([userInfo[@"price"] doubleValue]);
+		shoppingListElement.amount = @([userInfo[@"amount"] doubleValue] + [shoppingListElement.amount doubleValue]);
+		[self updateShoppingListElement:shoppingListElement withCompletionBlock:^{
+			completionBlock();
+		} andFailBlock:^(NSError *error) {
+			failBlock(error);
+		}];
+		return;
+	}
+	
 	__block NSMutableArray *storageArray = [NSMutableArray array];
 	[shoppingList.elements enumerateObjectsUsingBlock:^(SSShoppingListElement *element, BOOL *stop) {
 		[storageArray addObject:@{@"name" : element.name, @"price" : element.price, @"amount" : element.amount}];
