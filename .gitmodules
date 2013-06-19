@@ -1,0 +1,3 @@
+[submodule "QR-Code-Encoder-for-Objective-C"]
+	path = QR-Code-Encoder-for-Objective-C
+	url = https://github.com/myang-git/QR-Code-Encoder-for-Objective-C.git

@@ -9,6 +9,7 @@
 #import "SSItemsViewController.h"
 #import "SSDetailViewController.h"
 #import "SSItemTableViewCell.h"
+#import "SSQrCodeViewController.h"
 
 typedef enum {
 	SSItemsViewControllerActionSheetIndexQRCode,
@@ -116,11 +117,14 @@ typedef enum {
 #pragma mark Overridden methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	if ([segue.identifier isEqualToString:@"ShowSelectedShoppingList"]){
+	NSIndexPath *shoppingListIndexPath = [self.tableView indexPathForCell:sender];
+	SSShoppingList *shoppingList = [[SSModelController sharedInstance].shoppingList objectAtIndexPath:shoppingListIndexPath];
+	if ([segue.identifier isEqualToString:@"ShowSelectedShoppingList"]) {
 		SSDetailViewController *detailVC = [segue destinationViewController];
-		
-		NSIndexPath *shoppingListIndexPath = [self.tableView indexPathForCell:sender];
-		detailVC.selectedShoppingList = [[SSModelController sharedInstance].shoppingList objectAtIndexPath:shoppingListIndexPath];
+		detailVC.selectedShoppingList = shoppingList;
+	} else if ([segue.identifier isEqualToString:@"ShowQRCode"]) {
+		SSQrCodeViewController *detailVC = [segue destinationViewController];
+		detailVC.shoppingList = shoppingList;
 	}
 }
 
