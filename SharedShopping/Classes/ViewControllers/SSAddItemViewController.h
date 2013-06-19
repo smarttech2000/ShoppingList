@@ -6,10 +6,13 @@
 //  Copyright (c) 2013 InPos Soft. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@interface SSAddItemViewController : UIViewController <UITextFieldDelegate>
 
-@interface SSAddItemViewController : UIViewController
-
+// Properties
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (retain, nonatomic) IBOutlet UITextField *shoppingListNameTextField;
+
+// Actions
+- (IBAction)doneButtonTapped:(UIBarButtonItem *)sender;
 
 @end

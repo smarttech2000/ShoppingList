@@ -7,6 +7,8 @@
 //
 
 #import "SSAppDelegate.h"
+#import "SSWebservice.h"
+#import "SSModelController.h"
 
 @implementation SSAppDelegate
 
@@ -17,6 +19,15 @@
 	[_window release];
 	
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark UIApplicationDelegate methods
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	[SSWebservice sharedInstance].storageController = [SSModelController sharedInstance];
+	
+	return YES;
 }
 
 @end

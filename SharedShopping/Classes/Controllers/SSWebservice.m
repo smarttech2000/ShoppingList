@@ -61,15 +61,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SSWebservice);
 - (void)createShoppingListWithName:(NSString *)shoppingListName withCompletionBlock:(void (^)(void))completionBlock andFailBlock:(void (^)(NSError *error))failBlock {
 	NSDictionary *params = @{@"api_key": @"guest@northpole.ro", @"secret": @"guest", @"namespace" : shoppingListName, @"storage": @[]};
 	NPStorage *storage = [[[NPStorage alloc] initWithParams:params] autorelease];
-	__block NSString *weakListName = shoppingListName;
+	__block NSString *weakListName = [shoppingListName retain];
 	[storage createWithCompletionBlock:^(id responseObject) {
 		SSShoppingList *shoppingList = [self.storageController aShoppingList];
 		shoppingList.name = weakListName;
 		shoppingList.id = responseObject[@"id"];
 		[self.storageController save];
+		[weakListName release];
 		completionBlock();
 	} andFailBlock:^(NSError *error) {
 		failBlock(error);
+		[weakListName release];
 	}];
 }
 

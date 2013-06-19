@@ -10,114 +10,118 @@
 #import "SSDetailViewController.h"
 #import "SSItemTableViewCell.h"
 
-@interface SSItemsViewController ()
-
-@end
+typedef enum {
+	SSItemsViewControllerActionSheetIndexQRCode,
+	SSItemsViewControllerActionSheetIndexManual
+} SSItemsViewControllerActionSheetIndex;
 
 @implementation SSItemsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+#pragma mark -
+#pragma mark Initialization
+
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	
+	[SSModelController sharedInstance].shoppingList.delegate = self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+#pragma mark -
+#pragma mark UIActionSheetDelegate methods
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == actionSheet.cancelButtonIndex) {
+		return;
+	}
+	switch (buttonIndex) {
+		case SSItemsViewControllerActionSheetIndexManual:
+			[self performSegueWithIdentifier:@"ShowAddNewShoppingList" sender:self];
+			break;
+		case SSItemsViewControllerActionSheetIndexQRCode:
+			NSLog(@"QR Code");
+			break;
+	}
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowSelectedShoppingList"]){
-        SSDetailViewController* detailVC = [segue destinationViewController];
+#pragma mark -
+#pragma mark UITableViewDataSource methods
 
-        NSIndexPath* shoppingListIndexPath = [self.tableView indexPathForCell:sender];
-        detailVC.selectedShoppingList = [[SSModelController sharedInstance].shoppingList objectAtIndexPath:shoppingListIndexPath];
-    }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	id  sectionInfo = [[[SSModelController sharedInstance].shoppingList sections] objectAtIndex:section];
+	return [sectionInfo numberOfObjects];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *CellIdentifier = @"ShoppingListCell";
+	
+	SSItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	cell.shoppingListNameLabel.text = [[[SSModelController sharedInstance].shoppingList objectAtIndexPath:indexPath] name];
+	
+	return cell;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [[SSModelController sharedInstance].shoppingList performFetch:nil];
-    [self.tableView reloadData];
+#pragma mark -
+#pragma mark NSFetchedResultsControllerDelegate methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+	[self.tableView beginUpdates];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    id  sectionInfo = [[[SSModelController sharedInstance].shoppingList sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+	switch (type) {
+		case NSFetchedResultsChangeInsert:
+			[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+		case NSFetchedResultsChangeDelete:
+			[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+	}
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"ShoppingListCell";
-    SSItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    cell.shoppingListNameLabel.text = [[[SSModelController sharedInstance].shoppingList objectAtIndexPath:indexPath] name];
-
-    return cell;
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+	UITableView *tableView = self.tableView;
+	switch (type) {
+		case NSFetchedResultsChangeInsert:
+			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+		case NSFetchedResultsChangeDelete:
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+		case NSFetchedResultsChangeUpdate: {
+			SSItemTableViewCell *cell = (SSItemTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+			cell.shoppingListNameLabel.text = [[[SSModelController sharedInstance].shoppingList objectAtIndexPath:indexPath] name];
+			break;
+		}
+		case NSFetchedResultsChangeMove:
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+			break;
+	}
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+	[self.tableView endUpdates];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)addButtonPushed:(UIBarButtonItem *)sender {
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"QR Code", @"Manual", nil];
+	[actionSheet showInView:self.view];
+	[actionSheet release];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+#pragma mark -
+#pragma mark Overridden methods
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:@"ShowSelectedShoppingList"]){
+		SSDetailViewController *detailVC = [segue destinationViewController];
+		
+		NSIndexPath *shoppingListIndexPath = [self.tableView indexPathForCell:sender];
+		detailVC.selectedShoppingList = [[SSModelController sharedInstance].shoppingList objectAtIndexPath:shoppingListIndexPath];
+	}
 }
 
 @end

@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 InPos Soft. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@interface SSItemsViewController : UITableViewController <UIActionSheetDelegate, NSFetchedResultsControllerDelegate>
 
-@interface SSItemsViewController : UITableViewController
+// Actions
+- (IBAction)addButtonPushed:(UIBarButtonItem *)sender;
 
 @end

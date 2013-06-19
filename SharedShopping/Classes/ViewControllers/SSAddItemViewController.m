@@ -7,55 +7,81 @@
 //
 
 #import "SSAddItemViewController.h"
+#import "SSWebservice.h"
 
-@interface SSAddItemViewController ()
-
+@interface SSAddItemViewController(SSAddItemViewControllerPrivate)
+- (void)addShoppingListWithName:(NSString *)shoppingListName;
 @end
+
+#pragma mark -
 
 @implementation SSAddItemViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+#pragma mark -
+#pragma mark Initialization
+
+- (void)viewDidAppear:(BOOL)animated {
+	[self.shoppingListNameTextField becomeFirstResponder];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)doneButtonTapped:(id)sender {
-    if ([self.shoppingListNameTextField.text length]) {
-        SSShoppingList* newShoppingList = [[SSModelController sharedInstance] aShoppingList];
-        newShoppingList.name = self.shoppingListNameTextField.text;
-
-        [[SSModelController sharedInstance] save];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Please fill the name of the shopping list"
-                                   delegate:nil cancelButtonTitle:@"Ok"
-                          otherButtonTitles:nil] show];
-    }
-}
-
--(IBAction)cancelButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+#pragma mark -
+#pragma mark Memory management
 
 - (void)dealloc {
-    [_shoppingListNameTextField release];
-    [super dealloc];
+	self.shoppingListNameTextField = nil;
+	
+	self.activityIndicator = nil;
+	
+	[super dealloc];
 }
+
+#pragma mark -
+#pragma mark UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[self addShoppingListWithName:textField.text];
+	return YES;
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)doneButtonTapped:(UIBarButtonItem *)sender {
+	[self addShoppingListWithName:self.shoppingListNameTextField.text];
+}
+
+@end
+
+#pragma mark -
+
+@implementation SSAddItemViewController(SSAddItemViewControllerPrivate)
+
+- (void)addShoppingListWithName:(NSString *)shoppingListName {
+	if ([shoppingListName length]) {
+		[self.view endEditing:YES];
+		self.view.userInteractionEnabled = NO;
+		[self.activityIndicator startAnimating];
+		
+		SSAddItemViewController *weakSelf = [self retain];
+		[[SSWebservice sharedInstance] createShoppingListWithName:shoppingListName withCompletionBlock:^{
+			weakSelf.view.userInteractionEnabled = YES;
+			[weakSelf.activityIndicator stopAnimating];
+			[weakSelf.navigationController popViewControllerAnimated:YES];
+			[weakSelf release];
+		} andFailBlock:^(NSError *error) {
+			weakSelf.view.userInteractionEnabled = YES;
+			[weakSelf.activityIndicator stopAnimating];
+			[weakSelf release];
+			
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+			[alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+			[alert release];
+		}];
+	} else {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill the name of the shopping list" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	}
+}
+
 @end
