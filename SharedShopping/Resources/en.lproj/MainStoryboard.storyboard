@@ -139,10 +139,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qvx-n7-15G" firstAttribute="trailing" secondItem="4ie-7A-oZc" secondAttribute="trailing" type="default" id="8hA-Gs-fzQ"/>
-                            <constraint firstItem="Qvx-n7-15G" firstAttribute="bottom" secondItem="4ie-7A-oZc" secondAttribute="bottom" type="default" id="GAQ-FY-s45"/>
-                            <constraint firstItem="Qvx-n7-15G" firstAttribute="leading" secondItem="4ie-7A-oZc" secondAttribute="leading" type="default" id="TY6-l6-BP9"/>
-                            <constraint firstItem="Qvx-n7-15G" firstAttribute="top" secondItem="4ie-7A-oZc" secondAttribute="top" type="default" id="oez-ln-qbk"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="bottom" secondItem="4ie-7A-oZc" secondAttribute="bottom" priority="1" type="user" id="11R-3w-iXk"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4ie-7A-oZc" secondAttribute="trailing" priority="1" type="user" id="8hA-Gs-fzQ"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4ie-7A-oZc" secondAttribute="bottom" priority="1" type="user" id="GAQ-FY-s45"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4ie-7A-oZc" secondAttribute="leading" priority="1" type="user" id="TY6-l6-BP9"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="trailing" secondItem="4ie-7A-oZc" secondAttribute="trailing" priority="1" type="user" id="jLz-ON-m7N"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="leading" secondItem="4ie-7A-oZc" secondAttribute="leading" priority="1" type="user" id="kLI-Xi-3I1"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="top" secondItem="4ie-7A-oZc" secondAttribute="top" type="user" id="oNa-eL-vfE"/>
+                            <constraint firstItem="Qvx-n7-15G" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4ie-7A-oZc" secondAttribute="top" type="user" id="oez-ln-qbk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="QR Code" id="J4H-wf-1hq"/>

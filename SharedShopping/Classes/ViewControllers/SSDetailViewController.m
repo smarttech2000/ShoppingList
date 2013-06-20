@@ -11,6 +11,20 @@
 #import "SSDetailTableViewCell.h"
 #import "SSWebservice.h"
 
+@interface SSDetailViewController() {
+	__block EGORefreshTableHeaderView *_refreshHeaderView;
+	
+	__block BOOL _reloading;
+}
+
+@end
+
+@interface SSDetailViewController(SSDetailViewControllerPrivate)
+- (void)doneLoadingTableViewData:(NSError *)anError;
+@end
+
+#pragma mark -
+
 @implementation SSDetailViewController
 
 #pragma mark -
@@ -25,6 +39,22 @@
 	[super awakeFromNib];
 	
 	[SSModelController sharedInstance].shoppingListElement.delegate = self;
+	
+	_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+	_refreshHeaderView.delegate = self;
+	[self.tableView addSubview:_refreshHeaderView];
+	
+	//  update the last update date
+	[_refreshHeaderView refreshLastUpdatedDate];
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+    [_refreshHeaderView release];
+	
+    [super dealloc];
 }
 
 #pragma mark -
@@ -139,6 +169,38 @@
 }
 
 #pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view {
+	_reloading = YES;
+	__block SSDetailViewController *weakSelf = self;
+	[[SSWebservice sharedInstance] refreshShoppingListElementsInShoppingList:self.selectedShoppingList withCompletionBlock:^{
+		[weakSelf performSelectorOnMainThread:@selector(doneLoadingTableViewData:) withObject:nil waitUntilDone:NO];
+	} andFailBlock:^(NSError *error) {
+		[weakSelf performSelectorOnMainThread:@selector(doneLoadingTableViewData:) withObject:error waitUntilDone:NO];
+	}];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view {
+	return _reloading;
+}
+
+- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view {
+	return [NSDate date];
+}
+
+#pragma mark -
 #pragma mark Overridden methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -153,6 +215,23 @@
 			elementVC.navigationItem.title = @"Update Item";
 			elementVC.shoppingListElement = element;
 		}
+	}
+}
+
+@end
+
+#pragma mark -
+
+@implementation SSDetailViewController(SSDetailViewControllerPrivate)
+
+- (void)doneLoadingTableViewData:(NSError *)anError {
+	_reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+	
+	if (anError) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[anError localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
+		[alert release];
 	}
 }
 

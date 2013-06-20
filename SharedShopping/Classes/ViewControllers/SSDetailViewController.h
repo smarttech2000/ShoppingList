@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 InPos Soft. All rights reserved.
 //
 
-@interface SSDetailViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+#import "EGORefreshTableHeaderView.h"
+
+@interface SSDetailViewController : UITableViewController <EGORefreshTableHeaderDelegate, NSFetchedResultsControllerDelegate>
 
 // Properties
 @property (nonatomic, retain) SSShoppingList *selectedShoppingList;
