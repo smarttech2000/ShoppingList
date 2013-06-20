@@ -59,15 +59,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SSWebservice);
 }
 
 - (void)refreshShoppingListWithId:(NSString *)shoppingListId withCompletionBlock:(void (^)(void))completionBlock andFailBlock:(void (^)(NSError *error))failBlock {
+	SSShoppingList *shoppingList = [self.storageController aShoppingListById:shoppingListId];
+	if (shoppingList) {
+		completionBlock();
+		return;
+	}
+	
 	NSDictionary *params = @{@"api_key": @"guest@northpole.ro", @"secret": @"guest", @"id" : shoppingListId};
 	NPStorage *storage = [[[NPStorage alloc] initWithParams:params] autorelease];
 	__block NSString *weakShoppingListId = [shoppingListId retain];
 	[storage findWithCompletionBlock:^(id responseObject) {
 		NSDictionary *response = responseObject[0];
-		
 		SSShoppingList *shoppingList = [self.storageController aShoppingList];
 		shoppingList.name = response[@"namespace"];
-		shoppingList.id = shoppingListId;
+		shoppingList.id = weakShoppingListId;
 		__block NSMutableSet *existingElements = [NSMutableSet set];
 		[(NSArray *)response[@"storage"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
 			SSShoppingListElement *element = [self.storageController aShoppingListElementByName:obj[@"name"] andShoppingList:shoppingList];

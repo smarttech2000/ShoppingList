@@ -23,15 +23,17 @@
 #pragma mark -
 #pragma mark Properties
 
-- (void)awakeFromNib {
+- (void)viewDidAppear:(BOOL)animated {
 	[super awakeFromNib];
 	
-	self.capture = [[[ZXCapture alloc] init] autorelease];
-	self.capture.delegate = self;
-	self.capture.rotation = 90.0f;
-	self.capture.camera = self.capture.back;
-	self.capture.layer.frame = self.view.bounds;
-	[self.view.layer addSublayer:self.capture.layer];
+	if (!self.capture) {
+		self.capture = [[[ZXCapture alloc] init] autorelease];
+		self.capture.delegate = self;
+		self.capture.rotation = 90.0f;
+		self.capture.camera = self.capture.back;
+		self.capture.layer.frame = self.view.bounds;
+		[self.view.layer addSublayer:self.capture.layer];
+	}
 }
 
 #pragma mark -
@@ -54,6 +56,9 @@
 	@synchronized (self) {
 		if (result) {
 			self.capture.delegate = nil;
+			
+			[self.navigationController performSelectorOnMainThread:@selector(popViewControllerAnimated:) withObject:@YES waitUntilDone:NO];
+			
 			if ([self.delegate respondsToSelector:@selector(qrCodeReaderViewController:foundText:)]) {
 				[self.delegate qrCodeReaderViewController:self foundText:result.text];
 			}

@@ -66,8 +66,6 @@ typedef enum {
 #pragma mark SSQRCodeReaderViewControllerDelegate methods
 
 - (void)qrCodeReaderViewController:(SSQRCodeReaderViewController *)qrCodeReaderViewController foundText:(NSString *)text {
-	[self.navigationController popViewControllerAnimated:YES];
-	
 	__block UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Loading..." message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
 	UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	[activity startAnimating];
