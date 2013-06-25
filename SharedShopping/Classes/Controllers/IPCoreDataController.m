@@ -75,11 +75,11 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (NSManagedObjectContext *)anObjectByEntityForName:(NSString *)entityName {
+- (NSManagedObject *)anObjectByEntityForName:(NSString *)entityName {
 	return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.managedObjectContext];
 }
 
-- (NSManagedObjectContext *)anObjectByEntityForName:(NSString *)entityName withUserInfo:(NSDictionary *)userInfo {
+- (NSManagedObject *)anObjectByEntityForName:(NSString *)entityName withUserInfo:(NSDictionary *)userInfo {
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext]];
 	

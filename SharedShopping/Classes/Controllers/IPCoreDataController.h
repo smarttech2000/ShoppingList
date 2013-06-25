@@ -15,8 +15,8 @@
 - (id)initWithDatabaseName:(NSString *)databaseName andInitialDatabaseName:(NSString *)initialDatabaseName;
 
 // Public methods
-- (NSManagedObjectContext *)anObjectByEntityForName:(NSString *)entityName;
-- (NSManagedObjectContext *)anObjectByEntityForName:(NSString *)entityName withUserInfo:(NSDictionary *)userInfo;
+- (NSManagedObject *)anObjectByEntityForName:(NSString *)entityName;
+- (NSManagedObject *)anObjectByEntityForName:(NSString *)entityName withUserInfo:(NSDictionary *)userInfo;
 - (NSFetchedResultsController *)frcForEntityName:(NSString *)entityName andSortDescriptors:(NSArray *)sortDescs andSectionNameKeyPath:(NSString *)keyPath andPredicate:(NSPredicate *)predicate;
 - (void)deleteObject:(NSManagedObject *)object;
 - (void)save;
